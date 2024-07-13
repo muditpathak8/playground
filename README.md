@@ -169,7 +169,7 @@ We will provide provenance shortly.
 - Kosli attestations must be made against a Trail, living inside a Flow.
   - A Kosli Flow represents a business or software process for which you want to track changes and monitor compliance.
     You create a Kosli Flow with the [kosli create flow](https://docs.kosli.com/client_reference/kosli_create_flow/) command.
-  - A Kosli Trail represents a single execution instance of a process represented by a Kosli Flow. 
+  - A Kosli Trail represents a single execution of a process represented by a Kosli Flow. 
     Each trail must have a unique identifier of your choice, based on your process and domain. 
     Example identifiers include git commits or pull request numbers.
     You begin a Kosli Trail with the [kosli begin trail](https://docs.kosli.com/client_reference/kosli_begin_trail/) command.
