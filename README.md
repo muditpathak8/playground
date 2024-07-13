@@ -119,7 +119,7 @@ It should show the string `Alpha` and nothing else.
 - You will see the api-key, something like `p1Qv8TggcjOG_UX-WImP3Y6LAf2VXPNN_p9-JtFuHr0`
 - Copy this api-key (Kosli stores a hashed version of this, so it will never be available from https://app.kosli.com again).
   There is a small copy button to the right of the api-key.
-- Create a GitHub Action secret (at the repo level), called `KOSLI_API_TOKEN`, set to the copied value
+- [Create a GitHub Action secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) (at the repo level), called `KOSLI_API_TOKEN`, set to the copied value
 
 
 # Understand the fake deployment in the CI pipeline
