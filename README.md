@@ -282,8 +282,6 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
         version: ${{ env.KOSLI_CLI_VERSION }}
           
     - name: Attest unit-test results to Kosli
-      env:
-        KOSLI_FINGERPRINT: ${{ needs.build-image.outputs.artifact_digest }}
       run:
         kosli attest junit --name=alpha.unit-test --results-dir=alpha/test/reports/junit
 ```
