@@ -3,16 +3,6 @@
 
 A playground for learning how to implement [Kosli](https://kosli.com)
 
-This is a very simple demo application. It is made up of three components:
-
-- WebApp: a single-page javascript web app.
-- Alpha: a Ruby based API service
-- Beta: a Ruby based API service
-
-This repo is a monorepo with each component in its own directory with its own Makefile.
-Each component has an independent GitHub Actions workflow. 
-Each workflow will trigger when changes to the relevant component are pushed to the main branch.
-
 
 ## Start to get familiar with Kosli [optional]
 
@@ -95,12 +85,12 @@ Create a Kosli Environment to record what is running in this fake deployment.
 This step is optional and can be skipped if you are editing files directly in GitHub.
 
 ```bash
-make -C alpha image
+make image
 ```
 This should create an image called: `ghcr.io/${DOCKER_ORG_NAME}/${REPO_NAME}-alpha:0c74d4c`
 where `0c74d4c` will be the short-sha of your current HEAD commit.
 ```bash
-make -C alpha run
+make run
 ```
 This should run the image locally, in a container, on port 4500.
 Check you can reach `localhost:4500` in your browser.
@@ -124,19 +114,16 @@ It should show the string `Alpha` and nothing else.
 
 # Understand the fake deployment in the CI pipeline
 
-- The repo is set up as a monorepo, with dirs called `alpha`, `beta`, and `webapp`
-  for the three services. The `.github/workflows` yml files have `on: paths:` filters set and only run when
-  there is a change in their respective directory (or the workflow file itself)
-- There is a *fake* [deploy](.github/workflows/alpha_main.yml#L136) job which runs this command to bring up the container in the CI pipeline!
+- There is a *fake* [deploy](.github/workflows/main.yml#L131) job which runs this command to bring up the container in the CI pipeline!
   ```yml
-  docker compose up ${{ env.SERVICE_NAME }} --wait
+  docker compose up --wait
   ```
-  After this command, the CI pipeline installs the Kosli CLI, and then runs this command:
+  After this command, the CI pipeline installs the Kosli CLI, and runs this command:
   ```yml
   kosli snapshot docker "${KOSLI_ENVIRONMENT_NAME}"
   ```
   The [kosli snapshot docker](https://docs.kosli.com/client_reference/kosli_snapshot_docker/) command takes a snapshot 
-  of the docker containers currently running (inside the CI pipeline!)
+  of the Docker containers currently running (inside the CI pipeline!)
   and sends their image names and digests/fingerprints to the named Kosli Environment (`playground-prod`).
   This command does _not_ need to set the `--org`, or `--api-token` flags because
   the `KOSLI_ORG` and `KOSLI_API_TOKEN` environment variables have been set at the top of the workflow yml file.
@@ -144,7 +131,7 @@ It should show the string `Alpha` and nothing else.
 
 ## Make a change, run the CI workflow, review the Environment in Kosli
 
-- Edit the file [alpha/code/alpha.rb](alpha/code/alpha.rb) so the return string from the `'/'` route is a new string
+- Edit the file [code/alpha.rb](code/alpha.rb) so the return string from the `'/'` route is a new string
 - Commit (add+commit+push if not editing in GitHub)
 - Wait for the GitHub Action Workflow to complete
 - Refresh the `playground-prod` Environment at https://app.kosli.com and verify it shows the `playground-alpha` 
@@ -156,7 +143,7 @@ We will provide provenance shortly.
 
 ## Make another change, rerun the CI workflow, review the Environment in Kosli
 
-- Re-edit the file [alpha/code/alpha.rb](alpha/code/alpha.rb) so the return string from the `'/'` route is a new string
+- Re-edit the file [code/alpha.rb](code/alpha.rb) so the return string from the `'/'` route is a new string
 - Commit (add+commit+push if not editing in GitHub)
 - Wait for the GitHub Action Workflow to complete
 - Refresh the `playground-prod` Environment at https://app.kosli.com and in the [Log] view verify
@@ -173,14 +160,14 @@ We will provide provenance shortly.
     Each trail must have a unique identifier of your choice, based on your process and domain. 
     Example identifiers include git commits or pull request numbers.
     You begin a Kosli Trail with the [kosli begin trail](https://docs.kosli.com/client_reference/kosli_begin_trail/) command.
-- At the top of the [.github/workflows/alpha_main.yml](.github/workflows/alpha_main.yml) file add two new `env:` variables for the
+- At the top of the [.github/workflows/main.yml](.github/workflows/main.yml) file add two new `env:` variables for the
 Kosli Flow (named after your repo) and Kosli Trail (named after each git-commit), as follows:
 ```yml
 env:
   KOSLI_FLOW: playground-alpha-ci
   KOSLI_TRAIL: ${{ github.sha }}
 ```
-- Still in [.github/workflows/alpha_main.yml](.github/workflows/alpha_main.yml), add the following entries to the end of the `setup:` job
+- Still in [.github/workflows/main.yml](.github/workflows/main.yml), add the following entries to the end of the `setup:` job
 to install the Kosli CLI and create the Kosli Flow and Kosli Trail.
 ```yml
       - name: Setup the Kosli CLI
@@ -206,7 +193,7 @@ to install the Kosli CLI and create the Kosli Flow and Kosli Trail.
 - You should see a single Trail whose name is the repo's current HEAD commit
 - Click the Trail name to view it, and confirm this Trail has no attestations
 - Is there a new Snapshot in the `playground-prod` Environment?
-  There is. Even if the docker layer-caching in the CI pipeline means the Artifact
+  There is. Even if the Docker layer-caching in the CI pipeline means the Artifact
   has the same digest/fingerprint as the previous commit, Kosli can tell from the
   timestamps that the image has been restarted.
 
@@ -214,7 +201,7 @@ to install the Kosli CLI and create the Kosli Flow and Kosli Trail.
 ## Attest the provenance of the Artifact in the CI pipeline
 
 - Most attestations need the Docker image digest/fingerprint. We will start by making this available to all jobs.
-- In [.github/workflows/alpha_main.yml](.github/workflows/alpha_main.yml)...
+- In [.github/workflows/main.yml](.github/workflows/main.yml)...
   - uncomment the following comments near the top of the `build-image:` job
   ```yml
   #    outputs:
@@ -260,7 +247,7 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
 
 ## View a deployment diff
 
-- Re-edit the file [alpha/code/alpha.rb](alpha/code/alpha.rb) so the return string from the `'/'` route is a new string
+- Re-edit the file [code/alpha.rb](code/alpha.rb) so the return string from the `'/'` route is a new string
 - Commit (add+commit+push if not editing in GitHub)
 - Wait for the GitHub Action Workflow to complete
 - Refresh the `playground-prod` Environment at https://app.kosli.com
@@ -273,7 +260,7 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
 
 ## Attest unit-test evidence to Kosli
 
-- [.github/workflows/alpha_main.yml](.github/workflows/alpha_main.yml) has a `unit-test:` job. You will attest its results to Kosli
+- [.github/workflows/main.yml](.github/workflows/main.yml) has a `unit-test:` job. You will attest its results to Kosli
 - Add the following to the end of the `unit-test:` job to install the Kosli CLI, and attest the unit-test results
 ```yml
     - name: Setup Kosli CLI
@@ -283,14 +270,14 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
           
     - name: Attest unit-test results to Kosli
       run:
-        kosli attest junit --name=alpha.unit-test --results-dir=alpha/test/reports/junit
+        kosli attest junit --name=alpha.unit-test --results-dir=test/reports/junit
 ```
 - Commit (add+commit+push if not editing in GitHub)
 - Wait for the GitHub Action Workflow to complete
 - The [kosli attest junit](https://docs.kosli.com/client_reference/kosli_attest_junit/) command
   reports the JUnit XML results files in the `--results-dir`. The alpha Artifact's tests
   are written using the Ruby MiniTest framework. In this framework, (and most others), it is easy
-  to also output the test results in the JUnit XML format. See line 7 of [alpha/test/test_base.rb](alpha/test/test_base.rb)
+  to also output the test results in the JUnit XML format. See line 7 of [test/test_base.rb](test/test_base.rb)
 - Refresh the `playground-prod` Environment at https://app.kosli.com and verify it shows the new `playground-alpha` 
 image running. The image tag should be the short-sha of your new HEAD commit
 - Open the latest Trail in the `playground-alpha-ci` Flow and verify

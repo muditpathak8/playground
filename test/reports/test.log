@@ -1,0 +1,13 @@
+Run options: --seed 16621
+
+# Running:
+
+.
+
+Finished in 0.002770s, 361.0434 runs/s, 361.0434 assertions/s.
+
+1 runs, 1 assertions, 0 failures, 0 errors, 0 skips
+
+[Minitest::CI] Generating test report in JUnit XML format...
+Coverage report generated for Minitest to /app/test/reports. 15 / 15 LOC (100.0%) covered.
+Coverage report generated for Minitest to /app/test/reports/coverage.json. 15 / 15 LOC (100.0%) covered.

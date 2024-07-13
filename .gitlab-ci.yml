@@ -1,29 +1,32 @@
+variables:
+  SERVICE_NAME: alpha
+  IMAGE_NAME: ${CI_REGISTRY}/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}/${SERVICE_NAME}:${CI_COMMIT_SHORT_SHA}
+
+default:
+  image: docker:26.1.4
+  services:
+    - docker:26.1.4-dind
+  before_script:
+    - apk add make bash
+    - cd ${SERVICE_NAME}
+    - docker login -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD} ${CI_REGISTRY}
+
 stages:
-  - triggers
+  - build
+  - test
 
-trigger_alpha:
-  stage: triggers
-  trigger:
-    include: alpha/.gitlab-ci.yml
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-      changes:
-        - alpha/**/*
+build:
+  stage: build
+  script:
+    - docker build -t ${IMAGE_NAME} .
+    - docker push ${IMAGE_NAME}
 
-trigger_beta:
-  stage: triggers
-  trigger:
-    include: beta/.gitlab-ci.yml
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-      changes:
-        - beta/**/*
+test:
+  stage: test
+  script:
+    - make test
 
-trigger_webapp:
-  stage: triggers
-  trigger:
-    include: webapp/.gitlab-ci.yml
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-      changes:
-        - webapp/**/*
+lint:
+  stage: test
+  script:
+    - make lint

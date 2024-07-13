@@ -1,0 +1,30 @@
+{
+  "timestamp": 1720887946,
+  "command_name": "Minitest",
+  "groups": {
+    "code": {
+      "lines": {
+        "total": 3,
+        "covered": 3,
+        "missed": 0
+      },
+      "branches": {
+        "total": 0,
+        "covered": 0,
+        "missed": 0
+      }
+    },
+    "test": {
+      "lines": {
+        "total": 12,
+        "covered": 12,
+        "missed": 0
+      },
+      "branches": {
+        "total": 0,
+        "covered": 0,
+        "missed": 0
+      }
+    }
+  }
+}
