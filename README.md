@@ -79,24 +79,7 @@ Create a Kosli Environment to record what is running in this fake deployment.
   - DOCKER_ORG_NAME to your GitHub username in lowercase
   - REPO_NAME if you changed it from `playground`
 
-
-## Check you can build and run an image locally
-
-This step is optional and can be skipped if you are editing files directly in GitHub.
-
-```bash
-make image
-```
-This should create an image called: `ghcr.io/${DOCKER_ORG_NAME}/${REPO_NAME}-alpha:0c74d4c`
-where `0c74d4c` will be the short-sha of your current HEAD commit.
-```bash
-make run
-```
-This should run the image locally, in a container, on port 4500.
-Check you can reach `localhost:4500` in your browser.
-It should show the string `Alpha` and nothing else.
-
-
+    
 ## Create a KOSLI_API_TOKEN and save it as a GitHub Action secret
 
 (Note: In a Shared Organization you would do this under a Service account) 
