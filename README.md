@@ -4,7 +4,7 @@
 A playground for learning how to implement [Kosli](https://kosli.com)
 
 
-## Start to get familiar with Kosli [optional]
+# Start to get familiar with Kosli [optional]
 
 There is a public Kosli Organization called [cyber-dojo](https://app.kosli.com/cyber-dojo/dashboard/) which can explore
 without having to log into Kosli. It is the Kosli Organization for [cyber-dojo](https://cyber-dojo.org), an open-source
@@ -129,7 +129,7 @@ It should show the string `Alpha` and nothing else.
   the `KOSLI_ORG` and `KOSLI_API_TOKEN` environment variables have been set at the top of the workflow yml file.
 
 
-## Make a change, run the CI workflow, review the Environment in Kosli
+# Make a change, run the CI workflow, review the Environment in Kosli
 
 - Edit the file [code/alpha.rb](code/alpha.rb) so the return string from the `'/'` route is a new string
 - Commit (add+commit+push if not editing in GitHub)
@@ -141,7 +141,7 @@ image running. The image tag should be the short-sha of your new HEAD commit
 We will provide provenance shortly.
 
 
-## Make another change, rerun the CI workflow, review the Environment in Kosli
+# Make another change, rerun the CI workflow, review the Environment in Kosli
 
 - Re-edit the file [code/alpha.rb](code/alpha.rb) so the return string from the `'/'` route is a new string
 - Commit (add+commit+push if not editing in GitHub)
@@ -151,7 +151,7 @@ We will provide provenance shortly.
   - the new playground-alpha Artifact is running, and this Artifact still has No provenance
 
 
-## Create a Kosli Flow and Trail
+# Create a Kosli Flow and Trail
 
 - Kosli attestations must be made against a Trail, living inside a Flow.
   - A Kosli Flow represents a business or software process for which you want to track changes and monitor compliance.
@@ -198,7 +198,7 @@ to install the Kosli CLI and create the Kosli Flow and Kosli Trail.
   timestamps that the image has been restarted.
 
 
-## Attest the provenance of the Artifact in the CI pipeline
+# Attest the provenance of the Artifact in the CI pipeline
 
 - Most attestations need the Docker image digest/fingerprint. We will start by making this available to all jobs.
 - In [.github/workflows/main.yml](.github/workflows/main.yml)...
@@ -245,7 +245,7 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
   short-sha, and git commit message.
 
 
-## View a deployment diff
+# View a deployment diff
 
 - Re-edit the file [code/alpha.rb](code/alpha.rb) so the return string from the `'/'` route is a new string
 - Commit (add+commit+push if not editing in GitHub)
@@ -258,7 +258,7 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
   (spanning potentially many commits) between the currently running alpha Artifact, and the previously running alpha Artifact.
 
 
-## Attest unit-test evidence to Kosli
+# Attest unit-test evidence to Kosli
 
 - [.github/workflows/main.yml](.github/workflows/main.yml) has a `unit-test:` job. You will attest its results to Kosli
 - Add the following to the end of the `unit-test:` job to install the Kosli CLI, and attest the unit-test results
