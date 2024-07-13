@@ -117,7 +117,7 @@ Create a Kosli Environment to record what is running in this fake deployment.
 - Edit the file [code/alpha.rb](code/alpha.rb) so the return string from the `'/'` route is a new string
 - Commit (add+commit+push if not editing in GitHub)
 - Wait for the GitHub Action Workflow to complete
-- Refresh the `playground-prod` Environment at https://app.kosli.com and verify it shows the `playground-alpha` 
+- Refresh your `playground-prod` Environment at https://app.kosli.com and verify it shows the `playground-alpha` 
 image running. The image tag should be the short-sha of your new HEAD commit 
 - This playground-alpha Artifact currently has No [provenance](https://www.kosli.com/blog/how-to-secure-your-software-supply-chain-with-artifact-binary-provenance/
 ) but is nevertheless showing as Compliant. This is because the Environment was set up with `Require artifacts to have provenance`=Off. 
@@ -129,7 +129,7 @@ We will provide provenance shortly.
 - Re-edit the file [code/alpha.rb](code/alpha.rb) so the return string from the `'/'` route is a new string
 - Commit (add+commit+push if not editing in GitHub)
 - Wait for the GitHub Action Workflow to complete
-- Refresh the `playground-prod` Environment at https://app.kosli.com and in the [Log] view verify
+- Refresh your `playground-prod` Environment at https://app.kosli.com and in the [Log] view verify
   - the previous playground-alpha Artifact has exited
   - the new playground-alpha Artifact is running, and this Artifact still has No provenance
 
@@ -222,7 +222,7 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
     variable. We will see an example of this shortly.
 - Commit (add+commit+push if not editing in GitHub)
 - Wait for the GitHub Action Workflow to complete
-- Refresh the `playground-prod` Environment at https://app.kosli.com 
+- Refresh your `playground-prod` Environment at https://app.kosli.com 
 - You will see a new Snapshot
 - This time the Artifact will have Provenance. You can see the Flow and Trail, and also the git commit
   short-sha, and git commit message.
@@ -233,7 +233,7 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
 - Re-edit the file [code/alpha.rb](code/alpha.rb) so the return string from the `'/'` route is a new string
 - Commit (add+commit+push if not editing in GitHub)
 - Wait for the GitHub Action Workflow to complete
-- Refresh the `playground-prod` Environment at https://app.kosli.com
+- Refresh your `playground-prod` Environment at https://app.kosli.com
 - You will see a new Snapshot
 - Its Artifact will have Provenance
 - Click the `>` chevron to reveal more information in a drop-down
@@ -261,7 +261,7 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
   reports the JUnit XML results files in the `--results-dir`. The alpha Artifact's tests
   are written using the Ruby MiniTest framework. In this framework, (and most others), it is easy
   to also output the test results in the JUnit XML format. See line 7 of [test/test_base.rb](test/test_base.rb)
-- Refresh the `playground-prod` Environment at https://app.kosli.com and verify it shows the new `playground-alpha` 
+- Refresh your `playground-prod` Environment at https://app.kosli.com and verify it shows the new `playground-alpha` 
 image running. The image tag should be the short-sha of your new HEAD commit
 - Open the latest Trail in the `playground-alpha-ci` Flow and verify
   - Its commit-sha name matches the commit in the latest `aws-prod` Snapshot
