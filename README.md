@@ -127,7 +127,7 @@ It should show the string `Alpha` and nothing else.
 - The repo is set up as a monorepo, with dirs called `alpha`, `beta`, and `webapp`
   for the three services. The `.github/workflows` yml files have `on: paths:` filters set and only run when
   there is a change in their respective directory (or the workflow file itself)
-- There is a *fake* [deploy](.github/workflows/alpha_main.yml#L128) job which runs this command to bring up the container in the CI pipeline!
+- There is a *fake* [deploy](.github/workflows/alpha_main.yml#L136) job which runs this command to bring up the container in the CI pipeline!
   ```yml
   docker compose up ${{ env.SERVICE_NAME }} --wait
   ```
