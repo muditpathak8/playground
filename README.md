@@ -233,7 +233,7 @@ to install the Kosli CLI and create the Kosli Flow and Kosli Trail.
 environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
   - In the [kosli attest artifact](https://docs.kosli.com/client_reference/kosli_attest_artifact/) command above, the 
   Kosli CLI calculates the fingerprint. To do this the CLI needs to be told
-  the name of the Docker image (`${needs.setup.outputs.image_name}`), and that this is a Docker image
+  the name of the Docker image (`${{needs.setup.outputs.image_name}}`), and that this is a Docker image
   (`--artifact-type=docker`), and that the image has previously been pushed to its registry (which it has)
   - You can also provide the fingerprint directly using the `--fingerprint` flag or `KOSLI_FINGERPRINT` environment 
     variable. We will see an example of this shortly.
