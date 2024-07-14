@@ -264,7 +264,7 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
 - Refresh your `playground-prod` Environment at https://app.kosli.com and verify it shows the new `playground-alpha` 
 image running. The image tag should be the short-sha of your new HEAD commit
 - Open the latest Trail in the `playground-alpha-ci` Flow and verify
-  - Its commit-sha name matches the commit in the latest `aws-prod` Snapshot
+  - Its commit-sha name matches the commit in the latest `playground-prod` Snapshot
   - There is an attestation called `alpha.unit-test`
   - Click the `>` chevron in the Trail to open the attestation drop-down
   - Browse the JUnit results in the JSON sent by the `kosli attest junit` command
