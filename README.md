@@ -97,7 +97,7 @@ Create a Kosli Environment to record what is running in this fake deployment.
 
 # Understand the fake deployment in the CI pipeline
 
-- There is a *fake* [deploy](.github/workflows/main.yml#L131) job which runs this command to bring up the container in the CI pipeline!
+- There is a *fake* [deploy](.github/workflows/main.yml#L122) job which runs this command to bring up the container in the CI pipeline!
   ```yml
   docker compose up --wait
   ```
