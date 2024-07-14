@@ -9,23 +9,27 @@ A playground for learning how to implement [Kosli](https://kosli.com)
 There is a public Kosli Organization called [cyber-dojo](https://app.kosli.com/cyber-dojo/dashboard/) which can explore
 without having to log into Kosli. It is the Kosli Organization for [cyber-dojo](https://cyber-dojo.org), an open-source
 application for practicing TDD from your browser. 
-- cyber-dojo has 10 microservices, each with their own repository.  
-There is a Kosli Flow for each repository's CI pipeline.  
-For example:
+
+## CI Pipeline/Commit ==> Kosli Flow/Kosli Trail
+
+- Cyber-dojo has 10 microservices, each with their own repository.
+- There is a Kosli Flow for each repository's CI pipeline.
+- Each Kosli Flow contains a Kosli Trail for each commit to its corresponding repository.  
+- For example:
   - [runner-ci](https://app.kosli.com/cyber-dojo/flows/runner-ci/trails/) is the Kosli Flow for the
-  [runner](https://github.com/cyber-dojo/runner) repo's CI pipeline on GitHub. It runs the tests submitted from the browser.
+    [runner](https://github.com/cyber-dojo/runner) repo's CI pipeline on GitHub. The runner Artifact runs the tests submitted from the browser.
+    - [1394fe76d45aaf40bf19817e0d8110b570848c9f](https://app.kosli.com/cyber-dojo/flows/runner-ci/trails/1394fe76d45aaf40bf19817e0d8110b570848c9f)
+    is the Kosli Trail for the *runner* Artifact built from commit [1394fe](https://github.com/cyber-dojo/runner/commit/1394fe76d45aaf40bf19817e0d8110b570848c9f).
+    This Trail has numerous pieces of evidence (attested from its CI pipeline), including 
+    a [snyk-code-scan](https://app.kosli.com/cyber-dojo/flows/runner-ci/trails/1394fe76d45aaf40bf19817e0d8110b570848c9f?attestation_id=07046aeb-9e1f-43cd-b68b-d8a7f0ae).
   - [creator-ci](https://app.kosli.com/cyber-dojo/flows/creator-ci/trails/) is the Kosli Flow for the
-  [creator](https://gitlab.com/cyber-dojo/creator/) repo's CI pipeline on Gitlab. It creates individual practice sessions.
-- Each Flow contains one Trail for each commit to its corresponding repository.  
-  For example:
-  - [1394fe76d45aaf40bf19817e0d8110b570848c9f](https://app.kosli.com/cyber-dojo/flows/runner-ci/trails/1394fe76d45aaf40bf19817e0d8110b570848c9f)
-  is the Kosli Trail for the *runner* Artifact built from commit [1394fe](https://github.com/cyber-dojo/runner/commit/1394fe76d45aaf40bf19817e0d8110b570848c9f).
-  This Trail has numerous pieces of evidence (attested from its CI pipeline), including 
-  a [snyk-code-scan](https://app.kosli.com/cyber-dojo/flows/runner-ci/trails/1394fe76d45aaf40bf19817e0d8110b570848c9f?attestation_id=07046aeb-9e1f-43cd-b68b-d8a7f0ae).
-  - [2252c4c22d325c5da618f90744625e540fc7cfae](https://app.kosli.com/cyber-dojo/flows/creator-ci/trails/2252c4c22d325c5da618f90744625e540fc7cfae)
-  is the Kosli Trail for the *creator* Artifact built from commit [2252c4c](https://gitlab.com/cyber-dojo/creator/-/commit/2252c4c22d325c5da618f90744625e540fc7cfae). 
-  This Trail also has numerous pieces of evidence (attested from it CI pipeline), including 
-  a [pull-request](https://app.kosli.com/cyber-dojo/flows/creator-ci/trails/2252c4c22d325c5da618f90744625e540fc7cfae?attestation_id=9aac53fa-58ac-46d6-b20a-ee2dc4c7).
+    [creator](https://gitlab.com/cyber-dojo/creator/) repo's CI pipeline on Gitlab. The creator Artifact creates individual practice sessions.
+    - [2252c4c22d325c5da618f90744625e540fc7cfae](https://app.kosli.com/cyber-dojo/flows/creator-ci/trails/2252c4c22d325c5da618f90744625e540fc7cfae)
+    is the Kosli Trail for the *creator* Artifact built from commit [2252c4c](https://gitlab.com/cyber-dojo/creator/-/commit/2252c4c22d325c5da618f90744625e540fc7cfae). 
+    This Trail also has numerous pieces of evidence (attested from it CI pipeline), including 
+    a [pull-request](https://app.kosli.com/cyber-dojo/flows/creator-ci/trails/2252c4c22d325c5da618f90744625e540fc7cfae?attestation_id=9aac53fa-58ac-46d6-b20a-ee2dc4c7).
+
+## ECS Cluster ==> Kosli Environment
 - Each cyber-dojo repo CI pipeline deploys to two AWS ECS clusters:
   - https://beta.cyber-dojo.org runs on its staging cluster. The Kosli Environment for this cluster
     is [aws-beta](https://app.kosli.com/cyber-dojo/environments/aws-beta/events/)
