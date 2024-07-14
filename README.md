@@ -153,21 +153,21 @@ env:
 - Still in [.github/workflows/main.yml](.github/workflows/main.yml), add the following entries to the end of the `setup:` job
 to install the Kosli CLI and create the Kosli Flow and Kosli Trail.
 ```yml
-      - name: Setup the Kosli CLI
-        uses: kosli-dev/setup-cli-action@v2
-        with:
-          version: ${{ env.KOSLI_CLI_VERSION }}
+    - name: Setup the Kosli CLI
+      uses: kosli-dev/setup-cli-action@v2
+      with:
+        version: ${{ env.KOSLI_CLI_VERSION }}
 
-      - name: Create the Kosli Flow for this pipeline
-        run:
-          kosli create flow "${{ env.KOSLI_FLOW }}"
-            --description="Learning about Kosli"
-            --use-empty-template
+    - name: Create the Kosli Flow for this pipeline
+      run:
+        kosli create flow "${{ env.KOSLI_FLOW }}"
+          --description="Learning about Kosli"
+          --use-empty-template
 
-      - name: Begin Kosli Trail for this commit
-        run:
-          kosli begin trail "${{ env.KOSLI_TRAIL }}"
-            --description="${{ github.actor }} - $(git log -1 --pretty=%B)"
+    - name: Begin Kosli Trail for this commit
+      run:
+        kosli begin trail "${{ env.KOSLI_TRAIL }}"
+          --description="${{ github.actor }} - $(git log -1 --pretty=%B)"
 ```
 - Commit (add+commit+push if not editing in GitHub)
 - Wait for the GitHub Action Workflow to complete
@@ -259,12 +259,12 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
 - Wait for the GitHub Action Workflow to complete
 - The [kosli attest junit](https://docs.kosli.com/client_reference/kosli_attest_junit/) command
   reports the JUnit XML results files in the `--results-dir`. The alpha Artifact's tests
-  are written using the Ruby MiniTest framework. In this framework, (and most others), it is easy
-  to also output the test results in the JUnit XML format. See line 7 of [test/test_base.rb](test/test_base.rb)
+  are written using the Ruby MiniTest framework. Like most test frameworks, it is easy
+  to output the test results in the JUnit XML format. See line 7 of [test/test_base.rb](test/test_base.rb)
 - Refresh your `playground-prod` Environment at https://app.kosli.com and verify it shows the new `playground-alpha` 
 image running. The image tag should be the short-sha of your new HEAD commit
 - Open the latest Trail in the `playground-alpha-ci` Flow and verify
   - Its commit-sha name matches the commit in the latest `playground-prod` Snapshot
-  - There is an attestation called `alpha.unit-test`
-  - Click the `>` chevron in the Trail to open the attestation drop-down
+  - There is a Trail Event for the attestation called `alpha.unit-test`
+  - Click the `>` chevron in this Trail Event to open its drop-down
   - Browse the JUnit results in the JSON sent by the `kosli attest junit` command
