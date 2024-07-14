@@ -19,11 +19,11 @@ For example:
 - Each Flow contains one Trail for each commit to its corresponding repository.  
   For example:
   - [1394fe76d45aaf40bf19817e0d8110b570848c9f](https://app.kosli.com/cyber-dojo/flows/runner-ci/trails/1394fe76d45aaf40bf19817e0d8110b570848c9f)
-  is the Kosli Trail for the runner Artifact built from commit [1394fe](https://github.com/cyber-dojo/runner/commit/1394fe76d45aaf40bf19817e0d8110b570848c9f).
+  is the Kosli Trail for the *runner* Artifact built from commit [1394fe](https://github.com/cyber-dojo/runner/commit/1394fe76d45aaf40bf19817e0d8110b570848c9f).
   This Trail has numerous pieces of evidence (attested from its CI pipeline), including 
   a [snyk-code-scan](https://app.kosli.com/cyber-dojo/flows/runner-ci/trails/1394fe76d45aaf40bf19817e0d8110b570848c9f?attestation_id=07046aeb-9e1f-43cd-b68b-d8a7f0ae).
   - [2252c4c22d325c5da618f90744625e540fc7cfae](https://app.kosli.com/cyber-dojo/flows/creator-ci/trails/2252c4c22d325c5da618f90744625e540fc7cfae)
-  is the Kosli Trail for the creator Artifact built from commit [2252c4c](https://gitlab.com/cyber-dojo/creator/-/commit/2252c4c22d325c5da618f90744625e540fc7cfae). 
+  is the Kosli Trail for the *creator* Artifact built from commit [2252c4c](https://gitlab.com/cyber-dojo/creator/-/commit/2252c4c22d325c5da618f90744625e540fc7cfae). 
   This Trail also has numerous pieces of evidence (attested from it CI pipeline), including 
   a [pull-request](https://app.kosli.com/cyber-dojo/flows/creator-ci/trails/2252c4c22d325c5da618f90744625e540fc7cfae?attestation_id=9aac53fa-58ac-46d6-b20a-ee2dc4c7).
 - Each cyber-dojo repo CI pipeline deploys to two AWS ECS clusters:
