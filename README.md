@@ -6,7 +6,7 @@ A playground for learning how to implement [Kosli](https://kosli.com)
 
 # Start to get familiar with Kosli [optional]
 
-There is a public Kosli Organization called [cyber-dojo](https://app.kosli.com/cyber-dojo/dashboard/) which can explore
+There is a public [Kosli Organization called cyber-dojo](https://app.kosli.com/cyber-dojo/dashboard/) which can explore
 without having to log into Kosli. It is the Kosli Organization for [cyber-dojo](https://cyber-dojo.org), an open-source
 application for practicing TDD from your browser. 
 
