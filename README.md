@@ -224,7 +224,7 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
   the name of the Docker image (`${{needs.setup.outputs.image_name}}`), and that this is a Docker image
   (`--artifact-type=docker`), and that the image has previously been pushed to its registry (which it has)
   - You can also provide the fingerprint directly using the `--fingerprint` flag or `KOSLI_FINGERPRINT` environment 
-    variable. We will see an example of this shortly.
+    variable. 
 - Commit (add+commit+push if not editing in GitHub)
 - Wait for the GitHub Action Workflow to complete
 - Refresh your `playground-prod` Environment at https://app.kosli.com 
