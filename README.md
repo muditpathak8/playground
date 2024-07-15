@@ -197,7 +197,7 @@ to install the Kosli CLI and create the Kosli Flow and Kosli Trail.
   ```
   - uncomment the following comments at the bottom of the `build-image:` job
   ```yml
-  #    - name: Make image digest available to following jobs
+  #    - name: Make image digest available to all jobs
   #      id: variables
   #      run: |
   #        DIGEST=$(echo ${{ steps.docker_build.outputs.digest }} | sed 's/.*://')
