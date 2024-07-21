@@ -3,12 +3,11 @@
 
 A playground for learning how to implement [Kosli](https://kosli.com)
 
-
-# Learning About Kosli Core Concepts
-In this optional section you can learn what the core Kosli concepts are, and explore actual examples 
-for the cyber-dojo open source project. Logging into Kosli is not required. 
-- [What are Kosli Flows and Trails](docs/get_familiar.md#what-are-kosli-flows-and-trails)
+# Learning About Kosli Core Concepts (optional)
+- [What are Kosli Flows and Trails?](docs/get_familiar.md#what-are-kosli-flows-and-trails)
 - [What are Kosli Environments and Snapshots?](docs/get_familiar.md#what-are-kosli-environments-and-snapshots)
+
+# Exploring real examples (optional)
 - [Explore Kosli Flows and Trails for cyber-dojo](docs/get_familiar.md#explore-kosli-flows-and-trails-for-cyber-dojo)
 - [Explore Kosli Environments and Snapshots for cyber-dojo](docs/get_familiar.md#explore-kosli-environments-and-snapshots-for-cyber-dojo)
 
