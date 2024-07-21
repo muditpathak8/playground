@@ -1,18 +1,29 @@
 
-# Start to get familiar with Kosli
+# Kosli Core Concepts
 
-There is a public [Kosli Organization called cyber-dojo](https://app.kosli.com/cyber-dojo/dashboard/) which you can explore
-without having to log into Kosli. It is the Kosli Organization for [cyber-dojo](https://cyber-dojo.org), an open-source
-application for practicing TDD from your browser. 
-
-## Kosli Flows and Trails
+## What are Kosli Flows and Trails?
 
 - A Kosli Flow represents a business or software process for which you want to track changes and monitor compliance.
 - A Kosli Trail represents a single execution of a process represented by a Kosli Flow. 
 - Each trail must have a unique identifier of your choice, based on your process and domain. 
 - Example identifiers (for software processes) include git commits or pull request numbers.
 
-## Kosli Flows and Trail for cyber-dojo
+## What are Kosli Environments and Snapshots?
+
+- Environments in Kosli monitor changes in your software runtime systems.
+- You create a Kosli Environment for each physical or virtual runtime environment you want to track.
+- An environment snapshot represents the reported status (running artifacts) of your runtime environment at a specific point in time. 
+- Snapshots are immutable, append-only objects. Once a snapshot is created, it cannot be modified.
+- In each snapshot, Kosli links the running artifacts to the Flows that produced them. 
+- Snapshot compliance relies on the compliance status of each running artifact, while environment compliance depends on its latest snapshot compliance.
+
+# cyber-dojo
+
+There is a public [Kosli Organization called cyber-dojo](https://app.kosli.com/cyber-dojo/dashboard/) which you can explore
+without having to log into Kosli. It is the Kosli Organization for [cyber-dojo](https://cyber-dojo.org), an open-source
+application for practicing TDD from your browser. 
+
+## Explore Kosli Flows and Trails for cyber-dojo
 
 - Cyber-dojo has 10 microservices, each with their own repository.
 - There is a Kosli Flow for each repository's CI pipeline.
@@ -30,16 +41,7 @@ application for practicing TDD from your browser.
     - This Trail also has numerous pieces of evidence (attested from it CI pipeline), including 
     a [pull-request](https://app.kosli.com/cyber-dojo/flows/creator-ci/trails/2252c4c22d325c5da618f90744625e540fc7cfae?attestation_id=9aac53fa-58ac-46d6-b20a-ee2dc4c7).
 
-## Kosli Environments
-
-- Environments in Kosli monitor changes in your software runtime systems.
-- You create a Kosli Environment for each physical or virtual runtime environment you want to track.
-- An environment snapshot represents the reported status (running artifacts) of your runtime environment at a specific point in time. 
-- Snapshots are immutable, append-only objects. Once a snapshot is created, it cannot be modified.
-- In each snapshot, Kosli links the running artifacts to the Flows that produced them. 
-- Snapshot compliance relies on the compliance status of each running artifact, while environment compliance depends on its latest snapshot compliance.
-
-## Kosli Environments for cyber-dojo
+## Explore Kosli Environments and Snapshots for cyber-dojo
 
 - Each cyber-dojo repo CI pipeline deploys to two AWS ECS clusters:
   - https://beta.cyber-dojo.org runs on its staging cluster. 
