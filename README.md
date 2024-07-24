@@ -49,9 +49,8 @@ Create a Kosli Environment to record what is running in this fake deployment.
 ## Set the .env file variables
 
 - Edit (and save) the [.env](.env) file as follows:
-  - KOSLI_ORG to the name of your Kosli personal Org (your GitHub username)
   - DOCKER_ORG_NAME to your GitHub username in lowercase
-  - REPO_NAME if you changed it from `playground`
+  - REPO_NAME (if you changed it from `playground`)
 
     
 ## Create a KOSLI_API_TOKEN and save it as a GitHub Action secret
