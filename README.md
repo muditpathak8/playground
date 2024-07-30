@@ -3,13 +3,15 @@
 
 A playground for learning how to implement [Kosli](https://kosli.com)
 
-# Learning About Kosli Core Concepts (optional)
-- [What are Kosli Flows and Trails?](docs/get_familiar.md#what-are-kosli-flows-and-trails)
-- [What are Kosli Environments and Snapshots?](docs/get_familiar.md#what-are-kosli-environments-and-snapshots)
+# Learning about Kosli (optional)
 
-# Exploring real examples (optional)
-- [Explore Kosli Flows and Trails for cyber-dojo](docs/get_familiar.md#explore-kosli-flows-and-trails-for-cyber-dojo)
-- [Explore Kosli Environments and Snapshots for cyber-dojo](docs/get_familiar.md#explore-kosli-environments-and-snapshots-for-cyber-dojo)
+## Understanding Kosli Core Concepts
+- [What are Kosli Environments and Snapshots?](docs/get_familiar.md#what-are-kosli-environments-and-snapshots)
+- [What are Kosli Flows and Trails?](docs/get_familiar.md#what-are-kosli-flows-and-trails)
+
+## Exploring real examples
+- [Explore Kosli Environments and Snapshots for cyber-dojo's AWS ECS Clusters](docs/get_familiar.md#explore-kosli-environments-and-snapshots-for-cyber-dojos-aws-ecs-clusters)
+- [Explore Kosli Flows and Trails for cyber-dojo's Git repos](docs/get_familiar.md#explore-kosli-flows-and-trails-for-cyber-dojos-git-repos)
 
 
 # Setting up
