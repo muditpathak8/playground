@@ -3,7 +3,10 @@
 
 A playground for learning how to implement [Kosli](https://kosli.com)
 
-# Learning about Kosli (optional)
+# Learning about Kosli
+
+Feel free to skip this section if you are already familiar with Kosli
+or want to get started straight away.
 
 ## Understanding Kosli Core Concepts
 - [What are Kosli Environments and Snapshots?](docs/get_familiar.md#what-are-kosli-environments-and-snapshots)
@@ -22,7 +25,7 @@ A playground for learning how to implement [Kosli](https://kosli.com)
 - You will see a message saying `Workflows aren’t being run on this forked repository`.
 - Click the green button to enable Workflows on your forked repo.
 - Please follow the remaining instructions from the README in your forked repo.
-  (This is so the links take you to the files in your repo)
+  (This is so the links correctly take you to the files in *your* repo)
 
 
 ## Log into Kosli at https://app.kosli.com using GitHub
