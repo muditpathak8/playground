@@ -213,7 +213,7 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
 - Its Artifact will have Provenance
 - Click the `>` chevron to reveal more information in a drop-down
 - Click the link titled `View diff` in the entry called `Previous` to see the deployment-diff; this is a diff
-  (spanning potentially many commits) between the currently running alpha Artifact, and the previously running alpha Artifact.
+  (spanning potentially many commits) between the newly deployed alpha Artifact, and the previously running alpha Artifact.
 
 
 # Attest unit-test evidence to Kosli
