@@ -8,11 +8,11 @@ A playground for learning how to implement [Kosli](https://kosli.com)
 Feel free to skip this section if you are already familiar with Kosli
 or want to get started straight away.
 
-## Understanding Kosli Core Concepts
+### Understanding Kosli Core Concepts
 - [What are Kosli Environments and Snapshots?](docs/get_familiar.md#what-are-kosli-environments-and-snapshots)
 - [What are Kosli Flows and Trails?](docs/get_familiar.md#what-are-kosli-flows-and-trails)
 
-## Exploring real examples
+### Exploring real examples
 - [Explore Kosli Environments and Snapshots for cyber-dojo's AWS ECS Clusters](docs/get_familiar.md#explore-kosli-environments-and-snapshots-for-cyber-dojos-aws-ecs-clusters)
 - [Explore Kosli Flows and Trails for cyber-dojo's Git repos](docs/get_familiar.md#explore-kosli-flows-and-trails-for-cyber-dojos-git-repos)
 
