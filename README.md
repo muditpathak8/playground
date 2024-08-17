@@ -112,7 +112,7 @@ We will provide provenance shortly.
   - the new playground-alpha Artifact is running, and this Artifact still has No provenance
 
 
-# Create a Kosli Flow and Trail
+# Name your Kosli Flow and Trail
 
 - Kosli attestations must be made against a Trail, living inside a Flow.
   - A Kosli Flow represents a business or software process for which you want to track changes and monitor compliance.
@@ -127,25 +127,6 @@ Kosli Flow (named after your repo) and Kosli Trail (named after each git-commit)
 env:
   KOSLI_FLOW: playground-alpha-ci
   KOSLI_TRAIL: ${{ github.sha }}
-```
-- Still in [.github/workflows/main.yml](.github/workflows/main.yml), add the following entries to the end of the `setup:` job
-to install the Kosli CLI and create the Kosli Flow and Kosli Trail.
-```yml
-    - name: Setup the Kosli CLI
-      uses: kosli-dev/setup-cli-action@v2
-      with:
-        version: ${{ env.KOSLI_CLI_VERSION }}
-
-    - name: Create the Kosli Flow for this pipeline
-      run:
-        kosli create flow "${{ env.KOSLI_FLOW }}"
-          --description="Learning about Kosli"
-          --use-empty-template
-
-    - name: Begin Kosli Trail for this commit
-      run:
-        kosli begin trail "${{ env.KOSLI_TRAIL }}"
-          --description="${{ github.actor }} - $(git log -1 --pretty=%B)"
 ```
 - Commit (add+commit+push if not editing in GitHub)
 - Wait for the GitHub Action Workflow to complete
