@@ -116,11 +116,9 @@ We will provide provenance shortly.
 
 - Kosli attestations must be made against a Trail, living inside a Flow.
   - A Kosli Flow represents a business or software process for which you want to track changes and monitor compliance.
-    You create a Kosli Flow with the [kosli create flow](https://docs.kosli.com/client_reference/kosli_create_flow/) command.
   - A Kosli Trail represents a single execution of a process represented by a Kosli Flow. 
     Each trail must have a unique identifier of your choice, based on your process and domain. 
     Example identifiers include git commits or pull request numbers.
-    You begin a Kosli Trail with the [kosli begin trail](https://docs.kosli.com/client_reference/kosli_begin_trail/) command.
 - At the top of the [.github/workflows/main.yml](.github/workflows/main.yml) file add two new `env:` variables for the
 Kosli Flow (named after your repo) and Kosli Trail (named after each git-commit), as follows:
 ```yml
@@ -128,16 +126,6 @@ env:
   KOSLI_FLOW: playground-alpha-ci
   KOSLI_TRAIL: ${{ github.sha }}
 ```
-- Commit (add+commit+push if not editing in GitHub)
-- Wait for the GitHub Action Workflow to complete
-- In https://app.kosli.com, click `Flows` on the left hand side menu
-- Click the Flow named `playground-alpha-ci`
-- You should see a single Trail whose name is the repo's current HEAD commit
-- Click the Trail name to view it, and confirm this Trail has no attestations
-- Is there a new Snapshot in the `playground-prod` Environment?
-  There is. Even if the Docker layer-caching in the CI pipeline means the Artifact
-  has the same digest/fingerprint as the previous commit, Kosli can tell from the
-  timestamps that the image has been restarted.
 
 
 # Attest the provenance of the Artifact in the CI pipeline
@@ -185,6 +173,10 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
 - You will see a new Snapshot
 - This time the Artifact will have Provenance. You can see the Flow and Trail, and also the git commit
   short-sha, and git commit message.
+- In https://app.kosli.com, click `Flows` on the left hand side menu
+- Click the Flow named `playground-alpha-ci`
+- You should see a single Trail whose name is the repo's current HEAD commit
+- Click the Trail name to view it, and confirm this Trail has no attestations
 
 
 # View a deployment diff
