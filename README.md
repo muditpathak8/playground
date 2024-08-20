@@ -176,7 +176,7 @@ environment variables called `KOSLI_ORG`, `KOSLI_FLOW`, and `KOSLI_TRAIL`.
 - In https://app.kosli.com, click `Flows` on the left hand side menu
 - Click the Flow named `playground-alpha-ci`
 - You should see a single Trail whose name is the repo's current HEAD commit
-- Click the Trail name to view it, and confirm this Trail has no attestations
+- Click the Trail name to view it, and confirm this Trail has a single Artifact attestation
 
 
 # View a deployment diff
