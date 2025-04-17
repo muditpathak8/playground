@@ -6,6 +6,8 @@ on:
       - main
 
 env:
+  KOSLI_FLOW: playground-alpha-ci
+  KOSLI_TRAIL: ${{ github.sha }}
   DOCKER_USERNAME: ${{ github.actor }}
   DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
   DOCKER_REGISTRY: ghcr.io          # if you change this, change it in the .env file as well
