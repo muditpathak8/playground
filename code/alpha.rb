@@ -3,7 +3,7 @@
 require 'sinatra'
 require_relative 'prober'
 
-# Example monorepo micro-service
+# Example monorepo micro-service 
 class Alpha < Sinatra::Base
   get '/' do
     'Alpha'
