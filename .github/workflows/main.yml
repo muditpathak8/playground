@@ -12,7 +12,7 @@ env:
   REPO_NAME: ${{ github.event.repository.name }}
   KOSLI_CLI_VERSION: 2.10.10
   KOSLI_HOST: https://app.kosli.com
-  KOSLI_ORG: ${{ github.actor }}
+  KOSLI_ORG: Demo
   KOSLI_API_TOKEN: ${{ secrets.KOSLI_API_TOKEN }}
 
 jobs:
