@@ -168,6 +168,6 @@ jobs:
 
     - name: Create a Snapshot
       env:
-        KOSLI_ENVIRONMENT_NAME: playground-dev
+        KOSLI_ENVIRONMENT_NAME: playground-prod
       run:
         kosli snapshot docker "${KOSLI_ENVIRONMENT_NAME}"
